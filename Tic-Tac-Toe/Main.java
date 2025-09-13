@@ -101,10 +101,8 @@ public class Main {
         else if(grid[0][0] == 'O' && grid[1][1] == 'O' && grid[2][2] == 'O') { // Diagonal from the left have all O's
             return true;
         }
-        else if(grid[0][2] == 'O' && grid[1][1] == 'O' && grid[2][0] == 'O') { // Diagonal from the right all have O's
-            return true;
-        }
-        else { return false; }
+        else return grid[0][2] == 'O' && grid[1][1] == 'O' && grid[2][0] == 'O'; // Diagonal from the right all have O's
+        
     }
 
     public static boolean impossibleGameState(char[][] grid) { // When the grid has three X’s in a row as well as three O’s in a row, or there are a lot more X's than O's or vice versa
@@ -124,10 +122,7 @@ public class Main {
                 }
             }
         }
-        if((xWins(grid) == true && oWins(grid) == true)|| ((xCount - oCount) > 1 || (oCount - xCount) > 1)) {
-            return true;
-        }
-        else { return false;}
+        return (xWins(grid) == true && oWins(grid) == true)|| ((xCount - oCount) > 1 || (oCount - xCount) > 1);
     }
 
 }
